@@ -1,0 +1,250 @@
+/* ====================================
+    共通レイアウト・フォント
+==================================== */
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: #fcfcfc;
+    color: #333333;
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    height: 100vh;
+    margin-left: 128px;
+}
+
+input, select, textarea, button, label, span {
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom: 64px;
+}
+
+/* ==========================
+    共通フォーム
+========================== */
+.form_group {
+    margin-top: 48px;
+    width: 656px;
+}
+
+.form_line {
+    display: flex;
+    align-items: top;
+    gap: 12px;
+}
+
+label {
+    display: inline-block;
+    width: 160px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+
+.required_mark {
+    color: #B50909;
+}
+
+input, select {
+    flex: auto;
+    padding: 11px 12px;
+    border-radius: 8px;
+    border: 1px solid #C6CACE;
+}
+
+textarea {
+    flex: auto;
+    padding: 11px 12px;
+    border-radius: 8px;
+    height: 64px;
+    border: 1px solid #C6CACE;
+}
+
+.file_wrapper {
+    display: flex;
+    flex: auto;
+    align-items: center;
+    position: relative;
+}
+
+.file_button {
+    background-color: #F1F3F6;
+    border: 1px solid #C6CACE;
+    padding: 11px 12px;
+    border-radius: 8px;
+    margin-right: -8px;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    z-index: 1;
+    position: relative;
+}
+
+.file_button:hover {
+    background-color: #e6e9ef;
+}
+
+.file_name {
+    color: #666;
+    flex: auto;
+    padding: 11px 20px;
+    border-radius: 0 8px 8px 0;
+    background-color: #fff;
+    border: 1px solid #C6CACE;
+    border-left: none;
+    z-index: 0;
+}
+
+.alert {
+    color: #B50909;
+    background-color: rgba(181, 9, 9, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+}
+
+.image_file_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: auto;
+}
+
+.image_wrapper {
+    margin-bottom: 8px;
+}
+
+
+/* ==========================
+    共通ボタン
+========================== */
+
+.button_group {
+    display: flex;
+    gap: 8px;
+    margin: 64px 0 64px 0;
+    box-sizing: border-box;
+    width: 256px;
+
+}
+
+.button {
+    display: inline-block;
+    padding: 14px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.button_primary {
+    background-color: #5942D2;
+    color: #fff;
+    border: none;
+    flex: 1;
+}
+
+.button_secondary {
+    background-color: #fff;
+    color: #5942D2;
+    border: 1px solid #5942D2;
+    flex: 1;
+}
+
+.button_primary:hover {
+    background-color: #3b28b0;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(89, 66, 210, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.button_secondary:hover {
+    background-color: #f4f1ff;
+    color: #3b28b0;
+    box-shadow: 0 2px 8px rgba(89, 66, 210, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
+/* ====================================
+    詳細画面専用スタイル
+==================================== */
+.product_detail {
+    max-width: 656px;
+    margin-top: 48px;
+}
+
+.product_row {
+    display: flex;
+    margin-bottom: 32px;
+}
+
+.product_row .label {
+    width: 160px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.product_row .value {
+    flex: 1;
+}
+
+.product_image {
+    width: 200px;
+    height: auto;
+}
+
+/* ====================================
+    モーダル
+==================================== */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.is-visible {
+    display: flex;
+}
+
+.modal_content {
+    position: relative;
+    background-color: #fff;
+    padding: 24px 32px 48px;
+    border-radius: 12px;
+    text-align: left;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    min-width: 400px;
+    min-height: 64px;
+}
+
+.modal_close {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    margin-top: 16px;
+    padding: 8px 16px;
+    background-color: #5942D2;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

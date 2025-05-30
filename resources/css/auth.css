@@ -1,0 +1,99 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 400;
+    background-color: #fcfcfc;
+    color: 333333;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.auth_container {
+    width: 656px;
+    margin-top: 96px;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form_container {
+    margin-top: 120px;
+}
+
+.form_group {
+    margin-top: 48px;
+}
+
+.form_line {
+    display: flex;
+}
+
+label {
+    display: inline-block;
+    font-size: 16px;
+    width: 160px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+
+input {
+    flex: auto;
+    padding: 11px 12px;
+    border-radius: 8px;
+    border: 1px solid #C6CACE;
+}
+
+.error {
+    margin-top: 8px;
+    color: #B50909;
+}
+
+.button_group {
+    display: flex;
+    gap: 48px;
+    margin-top: 96px;
+    box-sizing: border-box;
+}
+
+.button {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+}
+
+.button_primary {
+    background-color: #5942D2;
+    color: #ffffff;
+    border: none;
+}
+
+.button_secondary {
+    background-color: #ffffff;
+    color: #5942D2;
+    border: 1px solid #5942D2;
+}
+
+.button_primary:hover {
+    background-color: #3b28b0;
+    color: #ffffff;
+    box-shadow: 0 2px 8px rgba(89, 66, 210, 0.3);
+    transition: all 0.2s ease-in-out;
+}
+
+.button_secondary:hover {
+    background-color: #f4f1ff;
+    color: #3b28b0;
+    box-shadow: 0 2px 8px rgba(89, 66, 210, 0.2);
+    transition: all 0.2s ease-in-out;
+}
+
