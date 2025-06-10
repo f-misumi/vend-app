@@ -8,15 +8,26 @@
     @vite('resources/js/script.js')
 </head>
 <body>
-        {{-- 更新成功時モーダル表示 --}}
-        @if (session('success'))
-            <div id="successModal" class="modal is-visible">
-                <div class="modal_content">
-                    <p>{{ session('success') }}</p>
-                    <button class="modal_close" id="closeModal">閉じる</button>
-                </div>
+    {{-- 更新成功時モーダル表示 --}}
+    @if (session('success'))
+        <div id="successModal" class="modal is-visible">
+            <div class="modal_content">
+                <p>{{ session('success') }}</p>
+                <button class="modal_close" id="closeModal">閉じる</button>
             </div>
-        @endif
+        </div>
+    @endif
+
+    {{-- 更新失敗時モーダル表示 --}}
+    @if (session('error'))
+    <div id="errorModal" class="modal is-visible">
+        <div class="modal_content error">
+            <p>{{ session('error') }}</p>
+            <button class="modal_close" id="closeErrorModal">閉じる</button>
+        </div>
+    </div>
+    @endif
+
     <div class="container">
         <h1>商品情報編集画面</h1>
 

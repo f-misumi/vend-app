@@ -248,3 +248,13 @@ textarea {
     border-radius: 8px;
     cursor: pointer;
 }
+
+.modal_content.error {
+    background-color: #fbeaea;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
+
+.modal_content.error .modal_close {
+    background-color: #b50909;
+}

@@ -17,6 +17,17 @@
             </div>
         </div>
     @endif
+
+    {{-- 登録失敗時モーダル表示 --}}
+    @if (session('error'))
+    <div id="errorModal" class="modal is-visible">
+        <div class="modal_content error">
+            <p>{{ session('error') }}</p>
+            <button class="modal_close" id="closeErrorModal">閉じる</button>
+        </div>
+    </div>
+    @endif
+
     <div class="container">
         <h1>商品新規登録画面</h1>
 

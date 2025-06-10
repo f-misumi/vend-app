@@ -8,6 +8,26 @@
     @vite('resources/js/script.js')
 </head>
 <body>
+    {{-- 削除成功時モーダル --}}
+    @if (session('success'))
+    <div id="successModal" class="modal is-visible">
+        <div class="modal_content">
+            <p>{{ session('success') }}</p>
+            <button class="modal_close" id="closeModal">閉じる</button>
+        </div>
+    </div>
+    @endif
+
+    {{-- 削除エラー時モーダル --}}
+    @if (session('error'))
+    <div id="errorModal" class="modal is-visible">
+        <div class="modal_content error">
+            <p>{{ session('error') }}</p>
+            <button class="modal_close error" id="closeErrorModal">閉じる</button>
+        </div>
+    </div>
+    @endif
+
     <div class="container">
         <h1>商品一覧画面</h1>
 
@@ -68,7 +88,6 @@
                             <div id="deleteModal-{{ $product->id }}" class="modal" style="display: none;">
                                 <div class="modal_content">
                                     <p>商品を削除しますか？</p>
-
                                     <form id="deleteForm-{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -86,9 +105,6 @@
                 @endforelse
             </tbody>
         </table>
-
-
-
         <div class="pagination_product-list">
             {{ $products->links() }}
         </div>
