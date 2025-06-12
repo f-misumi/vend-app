@@ -46,14 +46,14 @@
             <div class="form_group">
                 <div class="form_line">
                     <label>商品名<span class="required_mark">*</span></label>
-                    <input type="text" name="product_name" value="{{ old('product_name') }}" required>
+                    <input type="text" name="product_name" value="{{ old('product_name') }}">
                 </div>
             </div>
 
             <div class="form_group">
                 <div class="form_line">
                     <label>メーカー<span class="required_mark">*</span></label>
-                    <select name="company_id" class="form-select" required>
+                    <select name="company_id" class="form-select">
                         <option value="">選択してください</option>
                         @foreach($companies as $company)
                             <option value="{{ $company->id }}" {{ old('company_id') == $company->id ? 'selected' : '' }}>
@@ -67,14 +67,14 @@
             <div class="form_group">
                 <div class="form_line">
                     <label>価格<span class="required_mark">*</span></label>
-                    <input type="number" name="price" value="{{ old('price') }}" required>
+                    <input type="number" name="price" value="{{ old('price') }}">
                 </div>
             </div>
 
             <div class="form_group">
                 <div class="form_line">
                     <label>在庫数<span class="required_mark">*</span></label>
-                    <input type="number" name="stock" value="{{ old('stock') }}" required>
+                    <input type="number" name="stock" value="{{ old('stock') }}">
                 </div>
             </div>
 

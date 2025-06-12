@@ -16,7 +16,7 @@
             <div class="form_group">
                 <div class="form_line">
                     <label for="email">メールアドレス</label>
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus>
                 </div>
                 @error('email')
                     <div class="error">{{ $message }}</div>
@@ -26,7 +26,7 @@
             <div class="form_group">
                 <div class="form_line">
                     <label for="password">パスワード</label>
-                    <input id="password" type="password" name="password" required>
+                    <input id="password" type="password" name="password">
                 </div>
                 @error('password')
                     <div class="error">{{ $message }}</div>
