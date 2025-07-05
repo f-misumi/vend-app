@@ -1,13 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>商品情報詳細画面</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+@extends('layouts.app')
+
+@section('title', '商品情報詳細画面')
+
+@push('styles')
     @vite('resources/css/product.css')
-    @vite('resources/js/script.js')
-</head>
-<body>
+@endpush
+
+@section('content')
     <div class="container">
         <h1>商品情報詳細画面</h1>
 
@@ -37,6 +36,5 @@
             <a href="{{ route('products.edit', $product->id) }}" class="button button_primary">編集</a>
         </div>
     </div>
-</body>
-</html>
+@endsection
 

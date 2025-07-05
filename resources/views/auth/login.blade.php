@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>ユーザーログイン画面</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+@extends('layouts.app')
+
+@section('title', 'ユーザーログイン画面')
+
+@push('styles')
     @vite('resources/css/auth.css')
-</head>
-<body>
+@endpush
+
+@section('content')
     <div class="auth_container">
         <h1>ユーザーログイン画面</h1>
 
@@ -39,6 +39,5 @@
             </div>
         </form>
     </div>
-</body>
-</html>
+@endsection
 

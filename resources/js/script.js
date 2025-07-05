@@ -28,28 +28,9 @@ document.addEventListener('DOMContentLoaded', function () {
             errorModalRegister.classList.remove('is-visible');
         });
     }
-
-    // // 商品削除時のモーダル
-    // const successModal = document.getElementById('successModal');
-    // const closeSuccess = document.getElementById('closeSuccessModal');
-
-    // if (successModal && closeSuccess) {
-    //     closeSuccess.addEventListener('click', () => {
-    //         successModal.classList.remove('is-visible');
-    //     });
-    // }
-
-    // // 商品削除失敗時のモーダル
-    // const errorModalDelete = document.getElementById('errorModalDelete');
-    // const closeErrorDelete = document.getElementById('closeErrorModalDelete');
-    // if (errorModalDelete && closeErrorDelete) {
-    //     closeErrorDelete.addEventListener('click', () => {
-    //         errorModalDelete.classList.remove('is-visible');
-    //     });
-    // }
 });
 
-// 商品削除時のモーダル
+// 商品削除確認モーダル
 window.openDeleteModal = function (productId) {
     document.getElementById(`deleteModal-${productId}`).style.display = 'flex';
 };

@@ -1,33 +1,12 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <title>商品一覧画面</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+@extends('layouts.app')
+
+@section('title', '商品一覧画面')
+
+@push('styles')
     @vite('resources/css/index.css')
-    @vite('resources/js/script.js')
-</head>
-<body>
-    {{-- 削除成功時モーダル --}}
-    @if (session('success'))
-    <div id="successModal" class="modal is-visible">
-        <div class="modal_content">
-            <p>{{ session('success') }}</p>
-            <button class="modal_close" id="closeModal">閉じる</button>
-        </div>
-    </div>
-    @endif
+@endpush
 
-    {{-- 削除エラー時モーダル --}}
-    @if (session('error'))
-    <div id="errorModal" class="modal is-visible">
-        <div class="modal_content error">
-            <p>{{ session('error') }}</p>
-            <button class="modal_close error" id="closeErrorModal">閉じる</button>
-        </div>
-    </div>
-    @endif
-
+@section('content')
     <div class="container">
         <h1>商品一覧画面</h1>
 
@@ -109,6 +88,5 @@
             {{ $products->links() }}
         </div>
     </div>
-</body>
-</html>
+@endsection
 
