@@ -38,3 +38,27 @@ window.openDeleteModal = function (productId) {
 window.closeDeleteModal = function (productId) {
     document.getElementById(`deleteModal-${productId}`).style.display = 'none';
 };
+
+// 検索フォームのAjax送信処理
+$(document).ready(function () {
+    $('#search-form').on('submit', function (e) {
+        e.preventDefault();
+
+        $.ajax({
+            url: $(this).attr('action'),
+            type: 'GET',
+            data: $(this).serialize(),
+            dataType: 'html',
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            success: function (response) {
+                $('#product-list').html(response);
+            },
+            error: function (xhr, status, error) {
+                alert('検索に失敗しました。');
+                console.error(error);
+            }
+        })
+    })
+})

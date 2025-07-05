@@ -30,8 +30,32 @@ class ProductController extends Controller
             $query->where('company_id', $request->company_id);
         }
 
+        //価格の下限
+        if ($request->filled('price_min')) {
+            $query->where('price', '>=', $request->price_min);
+        }
+
+        //価格の上限
+        if ($request->filled('price_max')) {
+            $query->where('price', '<=', $request->price_max);
+        }
+
+        //在庫数の下限
+        if ($request->filled('stock_min')) {
+            $query->where('stock', '>=', $request->stock_min);
+        }
+
+        //在庫数の上限
+        if ($request->filled('stock_max')) {
+            $query->where('stock', '<=', $request->stock_max);
+        }
+
         $products = $query->paginate(10)->appends($request->all());
         $companies = Company::all();
+
+        if ($request->ajax()) {
+            return view('products.partials.product_table', compact('products'))->render();
+        }
 
         return view('products.index', compact('products', 'companies'));
     }

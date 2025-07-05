@@ -19,7 +19,7 @@
     @vite('resources/js/script.js')
 </head>
 <body>
-    {{-- 削除成功時モーダル --}}
+    {{-- 商品登録・更新・削除成功時モーダル --}}
     @if (session('success'))
     <div id="successModal" class="modal is-visible">
         <div class="modal_content">
@@ -29,7 +29,7 @@
     </div>
     @endif
 
-    {{-- 削除エラー時モーダル --}}
+    {{-- 商品登録・更新・削除エラー時モーダル --}}
     @if (session('error'))
     <div id="errorModal" class="modal is-visible">
         <div class="modal_content error">
