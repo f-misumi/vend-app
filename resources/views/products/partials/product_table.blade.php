@@ -1,14 +1,22 @@
 @if($products->count())
+    @php
+        $currentSort = request('sort', 'id');
+        $currentDirection = request('direction', 'desc');
+        function sortUrl($column, $currentSort, $currentDirection) {
+            $direction = ($currentSort === $column && $currentDirection === 'asc') ? 'desc' : 'asc';
+            return request()->fullUrlWithQuery(['sort' => $column, 'direction' => $direction]);
+        }
+    @endphp
     <table>
         <thead>
             <tr>
-                <th>ID</th>
-                <th>商品画像</th>
-                <th>商品名</th>
-                <th>価格</th>
-                <th>在庫数</th>
-                <th>メーカー名</th>
-                <th colspan="2">
+                <th><a href="{{ sortUrl('id', $currentSort, $currentDirection) }}">ID</a></th>
+                <th class="no-hover">商品画像</th>
+                <th><a href="{{ sortUrl('product_name', $currentSort, $currentDirection) }}">商品名</a></th>
+                <th><a href="{{ sortUrl('price', $currentSort, $currentDirection) }}">価格</a></th>
+                <th><a href="{{ sortUrl('stock', $currentSort, $currentDirection) }}">在庫数</a></th>
+                <th><a href="{{ sortUrl('company_name', $currentSort, $currentDirection) }}">メーカー名</a></th>
+                <th class="no-hover">
                     <a href="{{ route('products.create') }}" class="button button_primary">新規登録</a>
                 </th>
             </tr>
@@ -16,7 +24,7 @@
         <tbody>
             @forelse($products as $product)
                 <tr id="product-row-{{ $product->id}}">
-                    <td>{{ $product->id }}</td>
+                    <td class="col-narrow">{{ $product->id }}</td>
                     <td class="image_cell">
                         @if ($product->img_path)
                             <img src="{{ asset('storage/images/' . $product->img_path) }}" alt="商品画像" class="product_image">
@@ -25,8 +33,8 @@
                         @endif
                     </td>
                     <td>{{ $product->product_name }}</td>
-                    <td>￥{{ number_format($product->price) }}</td>
-                    <td>{{ $product->stock }}</td>
+                    <td class="col-narrow">￥{{ number_format($product->price) }}</td>
+                    <td class="col-narrow">{{ $product->stock }}</td>
                     <td>{{ $product->company->company_name }}</td>
                     <td class="button_group">
                         {{-- 詳細ボタン --}}

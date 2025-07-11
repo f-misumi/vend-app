@@ -50,6 +50,23 @@ class ProductController extends Controller
             $query->where('stock', '<=', $request->stock_max);
         }
 
+        // ソート処理
+        $sortColumn = $request->input('sort', 'id');
+        $sortDirection = $request->input('direction', 'desc');
+        if (!in_array($sortDirection, ['asc', 'desc'])) {
+            $sortDirection = 'desc';
+        }
+
+        $query = Product::with('company');
+        if ($sortColumn === 'company_name') {
+            $query->select('products.*')
+                ->join('companies', 'products.company_id', '=', 'companies.id')
+                ->orderBy('companies.company_name', $sortDirection);
+        } else {
+            $query->orderBy($sortColumn, $sortDirection);
+        }
+
+
         $products = $query->paginate(10)->appends($request->all());
         $companies = Company::all();
 

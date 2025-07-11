@@ -10,6 +10,7 @@ body {
     justify-content: left;
     height: 100vh;
     margin-left: 128px;
+    margin-right: 128px;
 }
 
 input, select, button {
@@ -92,9 +93,10 @@ input::placeholder {
 ========================== */
 
 table {
-    margin: 48px 0px;
-    width: 968px;
+    margin: 48px auto;
+    width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 th, td {
@@ -103,8 +105,43 @@ th, td {
     white-space: nowrap;
 }
 
+th a {
+    display: block;
+    box-sizing: border-box;
+}
+
+th {
+    background-color: #5942D2;
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #ccc;
+    padding: 24px;
+}
+
+th:hover {
+    background-color: #8472dd;
+    cursor: pointer;
+}
+
+th.no-hover:hover {
+    background-color: #5942D2;
+    cursor: default;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
 td {
-    max-width: 168px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+th.col-narrow,
+td.col-narrow {
+    width: 96px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -118,7 +155,7 @@ table tbody tr:nth-child(odd) {
     height: 74px;
     width: 128px;
     padding: 8px;
-    text-align: center;
+    text-align: left;
     color: #C6CACE;
 }
 
@@ -145,9 +182,10 @@ table tbody tr:nth-child(odd) {
 }
 
 .button_primary {
-    background-color: #5942D2;
-    color: #ffffff;
-    border: none;
+    background-color: #8472dd;
+    color: #fff;
+    border: 1px solid #fff;
+    box-shadow: 0 4px 10px rgba(40, 26, 134, 0.4);
     padding: 16px;
     width: 168px;
 }
@@ -178,8 +216,8 @@ table tbody tr:nth-child(odd) {
 }
 
 .button_primary:hover {
-    background-color: #3b28b0;
-    color: #ffffff;
+    background-color: #fff;
+    color: #5942D2;
     box-shadow: 0 2px 8px rgba(89, 66, 210, 0.3);
     transition: all 0.2s ease-in-out;
 }
