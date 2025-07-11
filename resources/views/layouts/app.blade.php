@@ -17,29 +17,37 @@
 
     {{-- 共通JS --}}
     @vite('resources/js/script.js')
+
+    {{-- CSRFトークン --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
-    {{-- 商品登録・更新・削除成功時モーダル --}}
-    @if (session('success'))
-    <div id="successModal" class="modal is-visible">
-        <div class="modal_content">
-            <p>{{ session('success') }}</p>
-            <button class="modal_close" id="closeModal">閉じる</button>
-        </div>
-    </div>
-    @endif
+    {{-- ログイン・新規登録画面ではモーダルを非表示 --}}
+    @php
+        $hideModals = in_array(Route::currentRouteName(), ['login', 'register']);
+    @endphp
 
-    {{-- 商品登録・更新・削除エラー時モーダル --}}
-    @if (session('error'))
-    <div id="errorModal" class="modal is-visible">
-        <div class="modal_content error">
-            <p>{{ session('error') }}</p>
-            <button class="modal_close error" id="closeErrorModal">閉じる</button>
+    @if (!$hideModals)
+        {{-- 商品登録・更新・削除成功時モーダル --}}
+        <div id="successModal" class="modal {{ session('success') ? 'is-visible' : '' }}">
+            <div class="modal_content">
+                <p class="modal-content-message">
+                    {{ session('success') ?? 'ここに成功メッセージが入ります' }}
+                </p>
+                <button class="modal_close" id="closeModal">閉じる</button>
+            </div>
         </div>
-    </div>
-    @endif
 
-    {{-- ヘッダー（ログイン中のナビなど）を必要に応じてここに挿入 --}}
+        {{-- 商品登録・更新・削除エラー時モーダル --}}
+        <div id="errorModal" class="modal {{ session('error') ? 'is-visible' : '' }}">
+            <div class="modal_content error">
+                <p class="modal-content-message">
+                    {{ session('error') ?? 'ここにエラー内容が入ります' }}
+                </p>
+                <button class="modal_close error" id="closeErrorModal">閉じる</button>
+            </div>
+        </div>
+    @endif
 
     <main>
         @yield('content')

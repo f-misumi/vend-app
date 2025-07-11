@@ -44,10 +44,6 @@
         <div id="product-list">
             @include('products.partials.product_table')
         </div>
-
-        <div class="pagination_product-list">
-            {{ $products->links() }}
-        </div>
     </div>
 @endsection
 

@@ -171,11 +171,11 @@ class ProductController extends Controller
 
             DB::commit();
 
-            return redirect()->route('products.index')->with('success', '商品を削除しました。');
+            return response()->json(['success' => true]);
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('商品削除エラー: ' . $e->getMessage());
-            return back()->with('error', '商品削除に失敗しました。');
+            \Log::error('商品削除エラー: ' . $e->getMessage());
+            return response()->json(['success' => false], 500);
         }
     }
 }
