@@ -16,7 +16,7 @@
             <div class="form_group">
                 <div class="form_line">
                     <label for="name">ユーザー名</label>
-                    <input id="name" type="name" name="name" value="{{ old('name') }}" autofocus>
+                    <input id="name" type="text" name="name" value="{{ old('name') }}" autofocus>
                 </div>
 
                 @error('name')

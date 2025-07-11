@@ -29,11 +29,6 @@ Route::get('register', [RegisterController::class, 'showRegistrationForm'])->nam
 Route::post('register', [RegisterController::class, 'register']);
 
 Route::middleware(['auth'])->group(function () {
-    // ダッシュボード画面表示
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
-
     // 商品一覧画面表示
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     // 商品新規作成画面表示

@@ -4,7 +4,7 @@ body {
     font-weight: 400;
     line-height: 1.5;
     background-color: #fcfcfc;
-    color: 333333;
+    color: #333;
     display: flex;
     align-items: flex-start;
     justify-content: left;
@@ -30,10 +30,20 @@ h1 {
     検索フォーム
 ========================== */
 
+
 .product_form-search {
     display: flex;
-    align-items: center;
-    gap: 16px;
+    flex-direction: column;
+    gap: 0;
+}
+
+.form_row-top,
+.form_row-bottom {
+    display: flex;
+    align-items: flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
 }
 
 .form_field-keyword,
@@ -70,6 +80,11 @@ input::placeholder {
 
 .form_button-search:hover {
     background-color: #e0e0e0;
+}
+
+.form_field-price .form_range-group input,
+.form_field-stock .form_range-group input {
+    width: 120px;
 }
 
 /* ==========================
@@ -318,4 +333,3 @@ table tbody tr:nth-child(odd) {
     box-shadow: 0 2px 6px rgba(181, 9, 9, 0.4);
     transition: all 0.2s ease-in-out;
 }
-

@@ -98,7 +98,7 @@ class ProductController extends Controller
             return redirect()->route('products.create')->with('success', '商品を登録しました。');
         } catch (\Exception $e) {
             DB::rollBack();
-            Log::error('商品更新エラー: ' . $e->getMessage());
+            Log::error('商品登録エラー: ' . $e->getMessage());
             return back()->withInput()->with('error', '商品登録に失敗しました。');
         }
     }
