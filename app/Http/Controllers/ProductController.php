@@ -66,7 +66,6 @@ class ProductController extends Controller
             $query->orderBy($sortColumn, $sortDirection);
         }
 
-
         $products = $query->paginate(10)->appends($request->all());
         $companies = Company::all();
 

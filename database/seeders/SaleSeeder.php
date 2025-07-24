@@ -14,6 +14,8 @@ class SaleSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Sale::factory(60)->create();
+        \App\Models\Sale::factory(60)->create([
+            'quantity' => rand(1,5),
+        ]);
     }
 }
