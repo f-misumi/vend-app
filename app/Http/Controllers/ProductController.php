@@ -57,7 +57,6 @@ class ProductController extends Controller
             $sortDirection = 'desc';
         }
 
-        $query = Product::with('company');
         if ($sortColumn === 'company_name') {
             $query->select('products.*')
                 ->join('companies', 'products.company_id', '=', 'companies.id')

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Company;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,10 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
+        $companyId = Company::inRandomOrder()->value('id');
+
         return [
-            'company_id' => \App\Models\Company::factory(),
+            'company_id' => $companyId ?? Company::factory(),
             'product_name' => $this->faker->word(),
             'price' => $this->faker->numberBetween(100, 500),
             'stock' => $this->faker->numberBetween(0, 100),
