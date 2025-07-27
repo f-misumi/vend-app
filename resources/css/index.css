@@ -193,6 +193,9 @@ table tbody tr:nth-child(odd) {
     width: 168px;
 }
 
+th .button_primary {
+    margin: 16px 24px;
+}
 
 .button_group {
     display: flex;
